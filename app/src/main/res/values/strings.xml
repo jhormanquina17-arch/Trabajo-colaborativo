@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Trabajo En equipo</string>
+    <string name="nombre">Nombre: --</string>
+    <string name="correo">Correo: --</string>
+    <string name="estado_conectando">Estado: Conectando...</string>
+    <string name="consumo_de_api_con_retrofit">Consumo de API con Retrofit</string>
 </resources>

@@ -2,6 +2,7 @@ package controler
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.alexrosero.trabajoenequipo.databinding.ActivityMainBinding
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.tvTokenStatus.text = "Por favor ingresa usuario y contraseña"
             }
+            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
         }
     }
 

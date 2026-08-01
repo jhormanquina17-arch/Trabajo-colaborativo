@@ -6,52 +6,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    >
+    tools:context=".MainActivity">
 
-    <!-- Título de bienvenida -->
+    <!-- Título principal -->
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/consumo_de_api_con_retrofit"
-        android:textSize="20sp"
+        android:text="Autenticación con API"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="24dp" />
 
-    <!-- Mensaje de estado del token -->
-    <TextView
-        android:id="@+id/tvTokenStatus"
+    <!-- Campo para ingresar el usuario -->
+    <EditText
+        android:id="@+id/etUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/estado_conectando"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
+        android:hint="Usuario (ej. emilys)"
+        android:inputType="text"
+        android:minHeight="48dp"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Campo para ingresar la contraseña -->
+    <EditText
+        android:id="@+id/etClave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@id/etUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Botón para iniciar sesión -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        app:layout_constraintTop_toBottomOf="@id/etClave"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp" />
 
-    <!-- Nombre del usuario obtenido -->
+    <!-- Estado de la petición -->
+    <TextView
+        android:id="@+id/tvTokenStatus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Estado: Esperando datos..."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- Resultados del usuario obtenido -->
     <TextView
         android:id="@+id/tvNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/nombre"
+        android:text="Nombre: --"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/tvTokenStatus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- Correo del usuario obtenido -->
     <TextView
         android:id="@+id/tvCorreoUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/correo"
+        android:text="Correo: --"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/tvNombreUsuario"
         app:layout_constraintStart_toStartOf="parent"

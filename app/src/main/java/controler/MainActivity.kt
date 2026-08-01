@@ -11,23 +11,31 @@ import model.RetrofitClient
 
 class MainActivity : AppCompatActivity() {
 
-    // Declaramos el binding
     private lateinit var binding: ActivityMainBinding
     private var token: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Inicializamos el View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ejecutamos el login al iniciar la app
-        hacerLogin("emilys", "emilyspass")
+        // Capturamos el clic del botón para mandar los datos que escribas en los EditText
+        binding.btnLogin.setOnClickListener {
+            val usuario = binding.etUsuario.text.toString().trim()
+            val clave = binding.etClave.text.toString().trim()
+
+            if (usuario.isNotEmpty() && clave.isNotEmpty()) {
+                hacerLogin(usuario, clave)
+            } else {
+                binding.tvTokenStatus.text = "Por favor ingresa usuario y contraseña"
+            }
+        }
     }
 
     // ---------- PASO A: POST de login ----------
     private fun hacerLogin(usuario: String, clave: String) {
+        binding.tvTokenStatus.text = "Estado: Conectando..."
         lifecycleScope.launch {
             try {
                 val resp = RetrofitClient.api.login(
@@ -41,7 +49,7 @@ class MainActivity : AppCompatActivity() {
                     obtenerUsuario() // seguimos al GET
                 } else {
                     Log.e("API", "Login falló: ${resp.code()}")
-                    binding.tvTokenStatus.text = "Estado: Falló el login (${resp.code()})"
+                    binding.tvTokenStatus.text = "Estado: Credenciales incorrectas (${resp.code()})"
                 }
             } catch (e: Exception) {
                 Log.e("API", "Error de red: ${e.message}")
@@ -60,7 +68,6 @@ class MainActivity : AppCompatActivity() {
                     val user = resp.body()
                     Log.d("API", "Hola ${user?.firstName} - ${user?.email}")
 
-                    // Mostramos los datos en la pantalla usando binding
                     binding.tvNombreUsuario.text = "Nombre: ${user?.firstName ?: "Sin nombre"}"
                     binding.tvCorreoUsuario.text = "Correo: ${user?.email ?: "Sin correo"}"
                 } else {

@@ -24,6 +24,8 @@ android {
         viewBinding = true
     }
 
+
+
     buildTypes {
         release {
             optimization {

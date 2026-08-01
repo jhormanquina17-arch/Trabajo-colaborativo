@@ -69,8 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etClave"
-        app:layout_constraintVertical_bias="0.009" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/tvTokenStatus"
@@ -85,27 +85,32 @@
         android:layout_marginTop="24dp" />
 
     <!-- Resultados del usuario obtenido -->
+
     <TextView
         android:id="@+id/tvNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nombre: --"
+        android:layout_marginTop="16dp"
+        android:text="Nombre:"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvTokenStatus"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTokenStatus" />
 
     <TextView
         android:id="@+id/tvCorreoUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Correo: --"
+        android:layout_marginTop="8dp"
+        android:text="Correo:"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvNombreUsuario"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNombreUsuario"
+        app:layout_constraintVertical_bias="0.024" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

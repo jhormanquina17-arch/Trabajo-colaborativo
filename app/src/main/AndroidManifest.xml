@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrabajoEnEquipo">
         <activity
-            android:name=".MainActivity"
+            android:name="controler.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
